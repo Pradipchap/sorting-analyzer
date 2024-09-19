@@ -43,14 +43,14 @@ export function NavbarMenu() {
                   {item.title}
                 </AccordionTrigger>
                 <AccordionContent>
-                  {item.children.map((item) => {
+                  {item.children.map(({ title, url }) => {
                     return (
-                      <Fragment key={item.title}>
+                      <Fragment key={title}>
                         <Link
                           className="mt-5 block w-full hover:text-primary/80 hover:underline"
-                          href={item.url}
+                          href={`/${item.url}/${url}`}
                         >
-                          {item.title}
+                          {title}
                         </Link>
                         <Separator className="bg-primary/10" />
                       </Fragment>

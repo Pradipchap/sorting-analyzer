@@ -17,3 +17,5 @@ export interface IMenuTriggers {
   url: string;
   children: IMenuTriggerChildren[];
 }
+
+export type ISortData = { data: number }[];

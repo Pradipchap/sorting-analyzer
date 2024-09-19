@@ -21,7 +21,7 @@ export default function Navbar() {
       <p>Logo</p>
       <NavigationMenu className="hidden md:block">
         <NavigationMenuList>
-          {NavMenuTriggers.map(({ title, url, children }) => {
+          {NavMenuTriggers.map(({ title, url:parentUrl, children }) => {
             return (
               <NavigationMenuItem key={title}>
                 <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
@@ -29,13 +29,13 @@ export default function Navbar() {
                   <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                     {children.slice(0, 6).map(({ title, description, url }) => {
                       return (
-                        <ListItem href={`/${url}`} key={title} title={title}>
+                        <ListItem href={`/${parentUrl}/${url}`} key={title} title={title}>
                           {description}
                         </ListItem>
                       );
                     })}
                     <Link
-                      href={`/${url}`}
+                      href={`/${parentUrl}`}
                       className="col-span-2  text-center self-center"
                     >
                       View all
